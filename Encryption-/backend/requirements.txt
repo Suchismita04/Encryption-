@@ -1,0 +1,6 @@
+flask
+flask-cors
+pyzipper
+gunicorn
+werkzeug
+requests
