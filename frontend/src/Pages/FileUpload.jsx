@@ -8,10 +8,15 @@ const FileUpload = () => {
   const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
 
+<<<<<<< HEAD
   const api = axios.create({
     baseURL: "/api", // Update to match your backend URL
     withCredentials: false,
   });
+=======
+  // ✅ Updated API with full backend URL (PythonAnywhere)
+  const API_BASE_URL = "https://indrada.pythonanywhere.com/api";
+>>>>>>> 2c28c3fce3c92e532000b3e16133bfce806bee97
 
   const handleZipChange = (e) => {
     setZipFile(e.target.files[0]);
@@ -28,7 +33,11 @@ const FileUpload = () => {
     formData.append("file", zipFile);
 
     try {
+<<<<<<< HEAD
       const response = await api.post("/upload", formData, {
+=======
+      const response = await axios.post(`${API_BASE_URL}/upload`, formData, {
+>>>>>>> 2c28c3fce3c92e532000b3e16133bfce806bee97
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -36,6 +45,10 @@ const FileUpload = () => {
       setZipPath(response.data.file_path);
     } catch (error) {
       setMessage("ZIP file upload failed.");
+<<<<<<< HEAD
+=======
+      console.error("Upload Error:", error);
+>>>>>>> 2c28c3fce3c92e532000b3e16133bfce806bee97
     }
   };
 
@@ -48,7 +61,11 @@ const FileUpload = () => {
 
     setMessage("Performing dictionary attack...");
     try {
+<<<<<<< HEAD
       const response = await api.post("/start-dictionary-attack", {
+=======
+      const response = await axios.post(`${API_BASE_URL}/start-dictionary-attack`, {
+>>>>>>> 2c28c3fce3c92e532000b3e16133bfce806bee97
         file_path: zipPath,
       });
 
@@ -60,6 +77,10 @@ const FileUpload = () => {
       }
     } catch (error) {
       setMessage("Error performing dictionary attack.");
+<<<<<<< HEAD
+=======
+      console.error("Attack Error:", error);
+>>>>>>> 2c28c3fce3c92e532000b3e16133bfce806bee97
     }
   };
 
